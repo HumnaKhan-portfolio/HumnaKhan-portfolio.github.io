@@ -1,10 +1,11 @@
-```html
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Humna Khan | Cybersecurity & Intelligence Portfolio</title>
+
+  <title>Humna Khan | Cybersecurity Portfolio</title>
 
   <style>
     :root {
@@ -12,8 +13,7 @@
       --navy: #071527;
       --navy-2: #0b1f35;
       --navy-3: #102a45;
-      --panel: rgba(11, 31, 53, 0.86);
-      --panel-solid: #0b1f35;
+      --panel: rgba(11, 31, 53, 0.88);
       --border: rgba(148, 163, 184, 0.18);
       --text: #e5edf8;
       --muted: #9fb0c5;
@@ -36,8 +36,8 @@
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 26%),
-        radial-gradient(circle at top right, rgba(13, 42, 75, 0.8), transparent 30%),
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.10), transparent 28%),
+        radial-gradient(circle at top right, rgba(15, 42, 69, 0.8), transparent 30%),
         linear-gradient(180deg, #050b14, #071527 42%, #050b14);
       color: var(--text);
       line-height: 1.65;
@@ -48,32 +48,45 @@
       text-decoration: none;
     }
 
+    a:hover {
+      color: var(--accent);
+    }
+
     .layout {
       display: grid;
-      grid-template-columns: 255px 1fr;
+      grid-template-columns: 260px 1fr;
       min-height: 100vh;
-      gap: 22px;
+      gap: 24px;
       padding: 22px;
     }
 
-    /* LEFT INTEL PANEL */
+    /* SIDEBAR */
 
     aside {
       position: sticky;
       top: 22px;
       height: calc(100vh - 44px);
+      overflow-y: auto;
       background:
-        linear-gradient(180deg, rgba(16, 42, 69, 0.92), rgba(7, 21, 39, 0.94)),
-        radial-gradient(circle at bottom left, rgba(56, 189, 248, 0.13), transparent 38%);
+        linear-gradient(180deg, rgba(16, 42, 69, 0.94), rgba(7, 21, 39, 0.96)),
+        radial-gradient(circle at bottom left, rgba(56, 189, 248, 0.12), transparent 40%);
       border: 1px solid var(--border);
       border-radius: 24px;
       padding: 24px;
-      overflow: hidden;
       box-shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
     }
 
+    aside::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    aside::-webkit-scrollbar-thumb {
+      background: rgba(148, 163, 184, 0.26);
+      border-radius: 999px;
+    }
+
     .identity {
-      margin-bottom: 34px;
+      margin-bottom: 30px;
     }
 
     .monogram {
@@ -105,12 +118,12 @@
 
     .side-nav {
       display: grid;
-      gap: 10px;
-      margin-bottom: 34px;
+      gap: 8px;
+      margin-bottom: 28px;
     }
 
     .side-nav a {
-      padding: 12px 14px;
+      padding: 11px 13px;
       border-radius: 14px;
       color: var(--soft);
       font-size: 14px;
@@ -124,7 +137,7 @@
     }
 
     .status-card {
-      background: linear-gradient(135deg, rgba(56, 189, 248, 0.16), rgba(216, 180, 95, 0.1));
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.14), rgba(216, 180, 95, 0.08));
       border: 1px solid rgba(56, 189, 248, 0.22);
       border-radius: 18px;
       padding: 18px;
@@ -157,14 +170,11 @@
     }
 
     .side-footer {
-      position: absolute;
-      left: 24px;
-      right: 24px;
-      bottom: 24px;
       color: var(--muted);
       font-size: 12px;
       border-top: 1px solid var(--border);
       padding-top: 18px;
+      margin-top: 24px;
     }
 
     .side-footer a {
@@ -192,10 +202,6 @@
       font-size: 14px;
     }
 
-    .topbar a:hover {
-      color: var(--accent);
-    }
-
     .hero {
       min-height: 560px;
       background:
@@ -216,9 +222,9 @@
     .hero::after {
       content: "";
       position: absolute;
-      width: 360px;
-      height: 360px;
-      border: 1px solid rgba(56, 189, 248, 0.15);
+      width: 340px;
+      height: 340px;
+      border: 1px solid rgba(56, 189, 248, 0.13);
       border-radius: 50%;
       right: -120px;
       top: 80px;
@@ -234,8 +240,8 @@
     }
 
     .hero h2 {
-      font-size: clamp(46px, 6vw, 78px);
-      line-height: 1.02;
+      font-size: clamp(44px, 5.7vw, 72px);
+      line-height: 1.04;
       letter-spacing: -0.055em;
       margin: 0 0 26px;
       color: var(--white);
@@ -247,7 +253,7 @@
 
     .hero p {
       color: #cbd5e1;
-      max-width: 700px;
+      max-width: 720px;
       font-size: 19px;
       margin: 0 0 34px;
     }
@@ -279,6 +285,11 @@
     .button:hover {
       transform: translateY(-2px);
       border-color: rgba(56, 189, 248, 0.42);
+      color: var(--white);
+    }
+
+    .button.primary:hover {
+      color: #03111c;
     }
 
     .brief-card {
@@ -347,7 +358,7 @@
     .section-title p {
       margin: 0;
       color: var(--muted);
-      max-width: 470px;
+      max-width: 490px;
       font-size: 14px;
     }
 
@@ -480,6 +491,40 @@
       font-size: 14px;
     }
 
+    .honours-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .honour {
+      background: rgba(11, 31, 53, 0.74);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 24px;
+    }
+
+    .honour .date {
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .honour h3 {
+      color: var(--white);
+      margin: 0 0 10px;
+      font-size: 17px;
+    }
+
+    .honour p {
+      color: var(--soft);
+      margin: 0;
+      font-size: 14px;
+    }
+
     .contact {
       margin: 34px 0 22px;
       background:
@@ -526,15 +571,9 @@
 
       aside {
         position: relative;
+        top: auto;
         height: auto;
-      }
-
-      .side-footer {
-        position: relative;
-        left: auto;
-        right: auto;
-        bottom: auto;
-        margin-top: 30px;
+        overflow: visible;
       }
 
       .hero {
@@ -545,6 +584,7 @@
       .metrics,
       .project-grid,
       .experience-grid,
+      .honours-grid,
       .contact {
         grid-template-columns: 1fr;
       }
@@ -575,7 +615,7 @@
       }
 
       .hero h2 {
-        font-size: 42px;
+        font-size: 40px;
       }
 
       .section-title {
@@ -597,7 +637,7 @@
       <div class="identity">
         <div class="monogram">HK</div>
         <h1>Humna Khan</h1>
-        <p>Cybersecurity & Intelligence Portfolio</p>
+        <p>Cybersecurity Portfolio</p>
       </div>
 
       <nav class="side-nav">
@@ -611,9 +651,8 @@
       <div class="status-card">
         <div class="label">Current Focus</div>
         <p>
-          Exploring the intersection of cyber threats, geopolitical risk,
-          China-focused regional studies, critical infrastructure, and
-          Australia's national security environment.
+          Cybersecurity, threat analysis, digital investigation, and the way cyber risk
+          connects with geopolitics and critical infrastructure.
         </p>
         <a class="mini-button" href="#work">View Work</a>
       </div>
@@ -637,13 +676,16 @@
 
       <section class="hero" id="profile">
         <div>
-          <div class="eyebrow">Cybersecurity • Geopolitics • China Studies • Critical Infrastructure</div>
-          <h2>Cyber analysis with an <span>intelligence-led</span> edge.</h2>
+          <div class="eyebrow">Cybersecurity • Digital Investigation • Geopolitical Risk</div>
+
+          <h2>Cybersecurity work with a <span>real-world risk</span> lens.</h2>
+
           <p>
             I am a cybersecurity student and International Studies major at the
             University of Technology Sydney (UTS), with a special focus on China.
-            My interests sit at the intersection of cyber threats, geopolitical risk,
-            critical infrastructure security, and Australia’s national security environment.
+            My work is mostly cyber, but I am also interested in how cyber threats,
+            geopolitical risk, critical infrastructure, and Australia’s security
+            environment connect.
           </p>
 
           <div class="hero-actions">
@@ -653,19 +695,22 @@
         </div>
 
         <div class="brief-card">
-          <h3>Analytical Profile</h3>
+          <h3>Profile Snapshot</h3>
+
           <ul class="brief-list">
             <li>
               <strong>Focus Areas</strong>
-              Cyber threat analysis, critical infrastructure, geopolitical risk, China studies, OSINT, DFIR, and SOC analysis.
+              Cybersecurity, OSINT, DFIR, SOC analysis, threat research, and critical infrastructure.
             </li>
-            <li>
-              <strong>Approach</strong>
-              Evidence-led, operationally aware, geopolitically informed, and risk-conscious.
-            </li>
+
             <li>
               <strong>Current Direction</strong>
-              Emerging cyber/intelligence professional interested in Australia’s national security environment.
+              Building an emerging cyber profile with a subtle but clear interest in geopolitical risk and national security.
+            </li>
+
+            <li>
+              <strong>How I Work</strong>
+              Direct, evidence-led, practical, and focused on what the traces actually show.
             </li>
           </ul>
         </div>
@@ -677,17 +722,20 @@
             <strong>6+</strong>
             <span>Cyber research & technical projects</span>
           </div>
+
           <div class="metric">
             <strong>2</strong>
-            <span>Internship/project leadership experiences</span>
+            <span>Internship / project leadership experiences</span>
           </div>
+
           <div class="metric">
             <strong>UTS</strong>
-            <span>Cybersecurity & International Studies</span>
+            <span>Cybersecurity + International Studies</span>
           </div>
+
           <div class="metric">
-            <strong>CTI</strong>
-            <span>Threat intelligence & geopolitical risk focus</span>
+            <strong>OSINT</strong>
+            <span>Threat research & investigation focus</span>
           </div>
         </div>
       </section>
@@ -696,8 +744,8 @@
         <div class="section-title">
           <h2>Selected Work</h2>
           <p>
-            Research-led and technical projects demonstrating investigation,
-            detection logic, cyber risk analysis, and intelligence-style thinking.
+            Projects that show cyber analysis, investigation, detection logic,
+            research, and decision-making under messy conditions.
           </p>
         </div>
 
@@ -705,21 +753,27 @@
 
           <article class="project featured">
             <div class="project-type">Featured Project • UTS Tech Festival 2026</div>
+
             <h3>TRUST Framework | Legacy Infrastructure Baseline Validation</h3>
+
             <p>
               Developed TRUST, an independent cybersecurity framework exploring
-              baseline validation and operational trust assessment within legacy
+              baseline validation and operational trust assessment in legacy
               critical infrastructure environments.
             </p>
+
             <p>
-              The project investigates how dormant threats, undocumented dependencies,
-              and inherited trust relationships can become normalised within operational
-              baselines, potentially limiting the effectiveness of modern monitoring systems.
+              The project looks at how dormant threats, undocumented dependencies,
+              and inherited trust relationships can become normalised inside
+              operational baselines, which can make modern monitoring less effective
+              if the starting point was never properly checked.
             </p>
+
             <p>
-              Presented as an interactive analyst simulation, allowing participants to
-              evaluate containment decisions and their operational consequences.
+              Presented as an interactive analyst simulation where participants had
+              to make containment decisions and deal with the operational consequences.
             </p>
+
             <div class="tags">
               <span class="tag">Critical Infrastructure</span>
               <span class="tag">Operational Trust</span>
@@ -730,14 +784,19 @@
 
           <article class="project">
             <div class="project-type">Detection & Log Analysis</div>
+
             <h3>SSH Brute Force Simulation</h3>
+
             <p>
-              Simulated an SSH brute-force attack within a controlled Ubuntu virtual
-              lab to analyse authentication telemetry through Linux log files.
+              Simulated an SSH brute-force attack in a controlled Ubuntu virtual lab
+              and analysed authentication telemetry through Linux log files.
             </p>
+
             <p>
-              Reconstructed attack progression and mapped activity to MITRE ATT&CK.
+              Reconstructed the attack path from enumeration to successful login and
+              mapped the behaviour to MITRE ATT&CK.
             </p>
+
             <div class="tags">
               <span class="tag">Linux Logs</span>
               <span class="tag">SSH Security</span>
@@ -747,15 +806,19 @@
 
           <article class="project">
             <div class="project-type">DFIR Case Study</div>
+
             <h3>Sysmon Breach Simulation</h3>
+
             <p>
               Detected malicious PowerShell execution and Scheduled Task persistence
               using Sysmon event telemetry.
             </p>
+
             <p>
-              Reconstructed attacker activity through IOC extraction, timeline analysis,
-              and forensic interpretation.
+              Reconstructed attacker activity through IOC extraction, timeline
+              analysis, and forensic interpretation.
             </p>
+
             <div class="tags">
               <span class="tag">DFIR</span>
               <span class="tag">Sysmon</span>
@@ -764,34 +827,42 @@
           </article>
 
           <article class="project">
-            <div class="project-type">Threat Intelligence</div>
+            <div class="project-type">Threat Research</div>
+
             <h3>Salt Typhoon Threat Actor Case Study</h3>
+
             <p>
               Analysed Salt Typhoon’s tradecraft, operational patterns, global reach,
-              and implications for critical infrastructure defence.
+              and relevance to critical infrastructure defence.
             </p>
+
             <p>
-              Focused on OSINT synthesis, strategic cyber risk, Australia and Indo-Pacific
-              relevance, and the relationship between geopolitical and cyber threats.
+              Focused on OSINT synthesis, strategic cyber risk, and the Australia /
+              Indo-Pacific angle.
             </p>
+
             <div class="tags">
-              <span class="tag">CTI</span>
+              <span class="tag">Threat Research</span>
               <span class="tag">OSINT</span>
-              <span class="tag">China-Linked Threats</span>
-              <span class="tag">National Security</span>
+              <span class="tag">Critical Infrastructure</span>
             </div>
           </article>
 
           <article class="project">
             <div class="project-type">Research Report</div>
+
             <h3>AI-Driven Cyber Threats</h3>
+
             <p>
               Analysed AI-enabled adversary tradecraft across social engineering,
               malware development, and automated attack scalability.
             </p>
+
             <p>
-              Mapped behaviours to MITRE ATT&CK and evaluated SOC detection strategies.
+              Mapped behaviours to MITRE ATT&CK and evaluated detection strategies
+              in SOC environments.
             </p>
+
             <div class="tags">
               <span class="tag">AI Security</span>
               <span class="tag">MITRE ATT&CK</span>
@@ -801,14 +872,18 @@
 
           <article class="project">
             <div class="project-type">Practical Labs</div>
+
             <h3>OSINT & Cybersecurity Labs</h3>
+
             <p>
-              Completed hands-on labs focused on open-source intelligence, metadata
+              Completed practical labs focused on open-source intelligence, metadata
               forensics, image geolocation, SOCMINT, and investigative reasoning.
             </p>
+
             <p>
-              Labs included Searchlight, Sakura OSINT, OhSINT, and other exercises.
+              Labs included Searchlight, Sakura OSINT, OhSINT, and related exercises.
             </p>
+
             <div class="tags">
               <span class="tag">OSINT</span>
               <span class="tag">Digital Forensics</span>
@@ -828,9 +903,12 @@
         </div>
 
         <div class="experience-grid">
+
           <article class="experience">
             <div class="date">Cybersecurity Internship</div>
+
             <h3>Cyber Security Intern | OESON</h3>
+
             <p>
               Completed projects across malware analysis, network scanning,
               vulnerability assessment, and web application security using tools
@@ -840,7 +918,9 @@
 
           <article class="experience">
             <div class="date">Software / UX Project</div>
+
             <h3>Software Engineer Intern & Team Co-Lead | Optik Winter 2025</h3>
+
             <p>
               Contributed to UI/UX design, stakeholder requirements, user stories,
               prototype development, and team coordination for a roadside assistance platform.
@@ -849,75 +929,90 @@
 
           <article class="experience">
             <div class="date">Leadership</div>
+
             <h3>Engineers Australia Student Ambassador</h3>
+
             <p>
               Supported student engagement activities, events, and community-facing
               initiatives across engineering and technology spaces.
             </p>
           </article>
+
         </div>
       </section>
 
       <section id="honours">
         <div class="section-title">
-          <h2>Selected Honours & International Engagement</h2>
+          <h2>Selected Honours & Engagement</h2>
           <p>
-            Recognition across leadership, international engagement, volunteering,
-            engineering and technology, and defence-aligned youth leadership.
+            A mix of leadership, international engagement, volunteering, and technology-related recognition.
           </p>
         </div>
 
-        <div class="experience-grid">
-          <article class="experience">
+        <div class="honours-grid">
+
+          <article class="honour">
             <div class="date">Aug 2026</div>
+
             <h3>University Scholars Leadership Symposium | Australian Delegate</h3>
+
             <p>
               Selected as an Australian delegate for the University Scholars Leadership
               Symposium at the United Nations Conference Centre in Bangkok, Thailand.
             </p>
           </article>
 
-          <article class="experience">
+          <article class="honour">
             <div class="date">Jan 2026</div>
+
             <h3>5th Global Peace Summit | Australian Delegate</h3>
+
             <p>
-              Represented Australia at the 5th Global Peace Summit hosted at the United
-              Nations Conference Centre in Bangkok, issued by Humanitarian Affairs Asia.
+              Represented Australia at the 5th Global Peace Summit hosted at the
+              United Nations Conference Centre in Bangkok, issued by Humanitarian Affairs Asia.
             </p>
           </article>
 
-          <article class="experience">
+          <article class="honour">
             <div class="date">Sep 2025</div>
+
             <h3>NSW Volunteer of the Year Award | Young Nominee</h3>
+
             <p>
               Nominated for the NSW Volunteer of the Year Award in recognition of
-              community service, student engagement, and volunteering contributions.
+              volunteering, community service, and student engagement.
             </p>
           </article>
 
-          <article class="experience">
+          <article class="honour">
             <div class="date">Feb 2023</div>
+
             <h3>FEIT Women in Engineering and IT Scholarship</h3>
+
             <p>
               Awarded by the UTS Faculty of Engineering and IT, recognising women
               pursuing engineering and technology pathways.
             </p>
           </article>
 
-          <article class="experience">
+          <article class="honour">
             <div class="date">Oct 2022</div>
+
             <h3>ADF Long Tan Youth Leadership & Teamwork Award</h3>
+
             <p>
-              Awarded by the Australian Department of Defence for leadership, teamwork,
-              initiative, and contribution to school and community life.
+              Awarded by the Australian Department of Defence for leadership,
+              teamwork, initiative, and contribution to school and community life.
             </p>
           </article>
+
         </div>
       </section>
 
       <section class="contact" id="contact">
         <div>
           <h2>Let’s connect.</h2>
+
           <p>
             I am open to cybersecurity, digital technology, research, national security,
             and critical infrastructure-aligned opportunities.
@@ -932,7 +1027,7 @@
       </section>
 
       <footer>
-        © 2026 Humna Khan · Cybersecurity & Intelligence Portfolio
+        © 2026 Humna Khan · Cybersecurity Portfolio
       </footer>
 
     </main>
@@ -941,4 +1036,3 @@
 
 </body>
 </html>
-```
