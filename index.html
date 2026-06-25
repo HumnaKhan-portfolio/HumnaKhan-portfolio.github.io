@@ -5,22 +5,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Humna Khan | Cybersecurity Portfolio</title>
+  <title>Humna Khan | Cybersecurity & Geopolitics</title>
 
   <style>
     :root {
-      --bg: #050b14;
-      --navy: #071426;
-      --navy-2: #0b1f35;
-      --ink: #e9edf4;
-      --muted: #9aa8ba;
-      --soft: #c9d3df;
-      --line: rgba(214, 185, 123, 0.28);
-      --line-soft: rgba(148, 163, 184, 0.18);
-      --gold: #d6b97b;
-      --gold-soft: #efe1bf;
-      --blue: #7dd3fc;
+      --bg: #050d18;
+      --bg-2: #091625;
+      --navy: #0b1c31;
+      --navy-2: #102742;
+      --navy-3: #163453;
+      --line: rgba(160, 185, 215, 0.16);
+      --line-strong: rgba(125, 211, 252, 0.28);
+      --text: #e8eef7;
+      --muted: #98a8bc;
+      --soft: #cad5e3;
+      --accent: #7dd3fc;
+      --accent-2: #38bdf8;
+      --accent-soft: rgba(125, 211, 252, 0.08);
       --white: #ffffff;
+      --gold-soft: #d9c7a1;
+      --shadow: 0 30px 70px rgba(0, 0, 0, 0.25);
+      --radius-lg: 28px;
+      --radius-md: 20px;
+      --radius-sm: 14px;
     }
 
     * {
@@ -34,12 +41,12 @@
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
       background:
-        radial-gradient(circle at 15% 5%, rgba(125, 211, 252, 0.08), transparent 24%),
-        radial-gradient(circle at 85% 12%, rgba(214, 185, 123, 0.06), transparent 26%),
-        linear-gradient(180deg, #050b14, #071426 46%, #050b14);
-      color: var(--ink);
-      line-height: 1.65;
+        radial-gradient(circle at 15% 8%, rgba(56, 189, 248, 0.08), transparent 24%),
+        radial-gradient(circle at 82% 18%, rgba(125, 211, 252, 0.05), transparent 22%),
+        linear-gradient(180deg, var(--bg), var(--bg-2) 42%, #07101b);
+      line-height: 1.7;
     }
 
     a {
@@ -48,394 +55,407 @@
     }
 
     .page {
-      width: min(1180px, 92%);
+      width: min(1260px, 93%);
       margin: 0 auto;
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      gap: 56px;
+      padding: 34px 0 48px;
     }
 
-    /* TOP STRIP */
+    /* SIDEBAR */
 
-    .top-strip {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items: center;
-      padding: 28px 0 20px;
+    aside {
+      position: sticky;
+      top: 34px;
+      height: fit-content;
+      max-height: calc(100vh - 68px);
+      overflow-y: auto;
+      padding-right: 6px;
+    }
+
+    .identity {
+      margin-bottom: 28px;
+    }
+
+    .identity .kicker {
+      color: var(--accent);
       font-size: 11px;
-      letter-spacing: 0.22em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--gold-soft);
+      font-weight: bold;
+      margin-bottom: 12px;
     }
 
-    .top-strip .center {
-      font-size: 24px;
-      letter-spacing: 0.04em;
-      color: var(--gold);
-      font-family: Georgia, serif;
+    .identity h1 {
+      margin: 0;
+      font-size: 19px;
+      line-height: 1.15;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
     }
 
-    .top-strip .right {
-      text-align: right;
+    .identity p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 12.5px;
+      max-width: 180px;
     }
 
-    /* HERO */
-
-    .hero {
-      min-height: 620px;
+    .side-nav {
       display: grid;
-      grid-template-rows: auto auto;
+      gap: 4px;
+      padding: 18px 0;
+      margin: 0 0 24px;
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
-      position: relative;
-      padding: 46px 0 34px;
     }
 
-    .hero-title {
-      position: relative;
-      z-index: 1;
+    .side-nav a {
+      color: var(--muted);
+      font-size: 13.5px;
+      padding: 8px 0;
+      transition: 0.18s ease;
     }
 
-    .hero-title h1 {
-      margin: 0;
-      color: var(--gold-soft);
-      font-family: Georgia, serif;
-      font-size: clamp(68px, 13vw, 176px);
-      line-height: 0.82;
-      letter-spacing: -0.07em;
-      text-transform: uppercase;
-      max-width: 1100px;
+    .side-nav a:hover {
+      color: var(--accent);
+      transform: translateX(3px);
     }
 
-    .hero-title .small-label {
-      color: var(--blue);
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 12px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
+    .side-note {
+      color: var(--soft);
+      font-size: 12.5px;
+      line-height: 1.65;
+      border-left: 2px solid var(--accent);
+      padding-left: 12px;
       margin-bottom: 22px;
     }
 
-    .hero-body {
+    .side-links {
       display: grid;
-      grid-template-columns: 1fr 1.2fr 1fr;
-      gap: 34px;
-      align-items: end;
-      margin-top: 30px;
-    }
-
-    .name-card {
-      border: 1px solid var(--line);
-      padding: 26px;
-      min-height: 170px;
-    }
-
-    .name-card h2 {
-      margin: 0;
-      color: var(--gold-soft);
-      font-family: Georgia, serif;
-      font-size: 38px;
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-      text-transform: uppercase;
-    }
-
-    .name-card p {
-      margin: 14px 0 0;
+      gap: 8px;
       color: var(--muted);
-      font-size: 13px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      font-size: 12.5px;
     }
 
-    .intro {
-      border-top: 1px solid var(--line-soft);
-      padding-top: 22px;
+    .side-links a {
+      color: var(--soft);
+      word-break: break-word;
     }
 
-    .intro h3 {
-      margin: 0 0 12px;
+    .side-links a:hover {
+      color: var(--accent);
+    }
+
+    /* MAIN */
+
+    main {
+      min-width: 0;
+    }
+
+    section {
+      margin-bottom: 56px;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 36px;
+      align-items: start;
+      margin-bottom: 28px;
+    }
+
+    .section-head h2 {
+      margin: 0;
       color: var(--white);
       font-size: 22px;
       letter-spacing: -0.02em;
     }
 
-    .intro p {
-      margin: 0;
-      color: var(--soft);
-      font-size: 15.5px;
-      max-width: 620px;
-    }
-
-    .hero-stats {
-      border: 1px solid var(--line);
-      padding: 24px;
-      display: grid;
-      gap: 18px;
-    }
-
-    .stat {
-      display: grid;
-      grid-template-columns: 58px 1fr;
-      gap: 16px;
-      align-items: center;
-      border-bottom: 1px solid var(--line-soft);
-      padding-bottom: 16px;
-    }
-
-    .stat:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-
-    .stat strong {
-      color: var(--gold-soft);
-      font-family: Georgia, serif;
-      font-size: 30px;
-      line-height: 1;
-    }
-
-    .stat span {
-      color: var(--muted);
-      font-size: 11px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    /* NAV */
-
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 18px 0;
-      border-bottom: 1px solid var(--line-soft);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(5, 11, 20, 0.86);
-      backdrop-filter: blur(12px);
-    }
-
-    .nav a {
-      color: var(--muted);
-      font-size: 12px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    .nav a:hover {
-      color: var(--gold-soft);
-    }
-
-    /* COMMON */
-
-    section {
-      padding: 64px 0;
-      border-bottom: 1px solid var(--line-soft);
-    }
-
-    .section-head {
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 42px;
-      margin-bottom: 34px;
-    }
-
-    .section-head h2 {
-      margin: 0;
-      color: var(--gold-soft);
-      font-family: Georgia, serif;
-      font-size: 34px;
-      line-height: 1;
-      letter-spacing: -0.03em;
-      text-transform: uppercase;
-    }
-
     .section-head p {
       margin: 0;
       color: var(--muted);
-      font-size: 14.5px;
-      max-width: 700px;
+      font-size: 14px;
+      max-width: 680px;
     }
 
-    .button-row {
+    /* HERO */
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .hero-main {
+      padding: 18px 0 0;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: 16px;
+    }
+
+    .hero-main h2 {
+      margin: 0;
+      color: var(--white);
+      font-size: clamp(36px, 5vw, 62px);
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+      max-width: 760px;
+    }
+
+    .hero-main h2 span {
+      color: var(--accent);
+    }
+
+    .hero-main p {
+      margin: 22px 0 0;
+      max-width: 760px;
+      color: var(--soft);
+      font-size: 17px;
+    }
+
+    .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 22px;
+      margin-top: 30px;
     }
 
     .button {
       display: inline-block;
       border: 1px solid var(--line);
-      color: var(--gold-soft);
-      padding: 10px 14px;
       border-radius: 999px;
-      font-size: 12px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+      padding: 10px 16px;
+      color: var(--white);
+      font-size: 13px;
+      font-weight: bold;
+      background: rgba(255, 255, 255, 0.02);
+      transition: 0.18s ease;
     }
 
     .button.primary {
-      background: var(--gold-soft);
-      color: #071426;
+      background: var(--accent);
+      color: #04111c;
+      border-color: var(--accent);
     }
 
     .button:hover {
-      border-color: var(--gold-soft);
+      transform: translateY(-1px);
+      border-color: var(--line-strong);
     }
 
-    /* PROFILE */
-
-    .profile-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 28px;
+    .hero-card {
+      background:
+        linear-gradient(180deg, rgba(16, 39, 66, 0.74), rgba(8, 22, 37, 0.86));
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 26px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
     }
 
-    .profile-copy {
-      border-left: 1px solid var(--line);
-      padding-left: 26px;
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top right, rgba(125, 211, 252, 0.14), transparent 34%);
+      pointer-events: none;
     }
 
-    .profile-copy p {
-      color: var(--soft);
-      font-size: 16px;
-      margin: 0 0 16px;
-      max-width: 760px;
+    .hero-card h3 {
+      margin: 0 0 14px;
+      color: var(--white);
+      font-size: 17px;
     }
 
-    .focus-list {
-      display: grid;
-      gap: 0;
-      border-top: 1px solid var(--line-soft);
-    }
-
-    .focus-item {
-      display: grid;
-      grid-template-columns: 90px 1fr;
-      gap: 16px;
-      padding: 18px 0;
-      border-bottom: 1px solid var(--line-soft);
-    }
-
-    .focus-item strong {
-      color: var(--gold);
-      font-size: 12px;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-    }
-
-    .focus-item span {
-      color: var(--soft);
+    .hero-card p {
+      margin: 0 0 18px;
+      color: var(--muted);
       font-size: 14px;
+    }
+
+    .signal-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .signal {
+      padding: 0 0 0 12px;
+      border-left: 2px solid var(--accent);
+    }
+
+    .signal strong {
+      display: block;
+      color: var(--white);
+      font-size: 13px;
+      margin-bottom: 2px;
+    }
+
+    .signal span {
+      display: block;
+      color: var(--muted);
+      font-size: 12.5px;
+    }
+
+    /* STRIP */
+
+    .profile-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 34px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      max-width: 900px;
+    }
+
+    .profile-item strong {
+      display: block;
+      color: var(--white);
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    .profile-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
     }
 
     /* WORK */
 
-    .work-feature {
+    .work-grid {
       display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 34px;
-      border: 1px solid var(--line);
-      margin-bottom: 28px;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 18px;
+      margin-bottom: 18px;
     }
 
-    .work-feature-left {
-      padding: 34px;
+    .feature-card {
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-lg);
+      padding: 32px;
       background:
-        radial-gradient(circle at top left, rgba(125, 211, 252, 0.09), transparent 34%),
-        rgba(11, 31, 53, 0.32);
+        radial-gradient(circle at top right, rgba(125, 211, 252, 0.11), transparent 36%),
+        linear-gradient(180deg, rgba(16, 39, 66, 0.68), rgba(6, 15, 26, 0.82));
+      box-shadow: var(--shadow);
     }
 
-    .work-feature-left .type,
-    .work-item .type {
-      color: var(--blue);
+    .stack {
+      display: grid;
+      gap: 18px;
+    }
+
+    .mini-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      background: rgba(16, 39, 66, 0.36);
+    }
+
+    .type {
+      color: var(--accent);
       font-size: 11px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       font-weight: bold;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
     }
 
-    .work-feature-left h3 {
-      margin: 0;
+    .feature-card h3,
+    .mini-card h3,
+    .work-band h3 {
+      margin: 0 0 12px;
       color: var(--white);
-      font-size: 30px;
-      line-height: 1.1;
-      letter-spacing: -0.03em;
+      line-height: 1.22;
     }
 
-    .work-feature-right {
-      padding: 34px;
-      border-left: 1px solid var(--line);
+    .feature-card h3 {
+      font-size: 26px;
     }
 
-    .work-feature-right p,
-    .work-item p {
-      margin: 0 0 13px;
+    .mini-card h3,
+    .work-band h3 {
+      font-size: 18px;
+    }
+
+    .feature-card p,
+    .mini-card p,
+    .work-band p {
+      margin: 0 0 12px;
       color: var(--soft);
       font-size: 14.5px;
     }
 
-    .work-grid {
+    .work-row {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      border-top: 1px solid var(--line-soft);
-      border-left: 1px solid var(--line-soft);
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 18px;
     }
 
-    .work-item {
-      padding: 28px;
-      border-right: 1px solid var(--line-soft);
-      border-bottom: 1px solid var(--line-soft);
-      min-height: 230px;
-    }
-
-    .work-item h3 {
-      margin: 0 0 12px;
-      color: var(--white);
-      font-size: 20px;
-      line-height: 1.25;
-      letter-spacing: -0.02em;
+    .work-band {
+      border-top: 1px solid var(--line);
+      padding: 22px 0 0;
     }
 
     .tags {
-      margin-top: 16px;
+      margin-top: 14px;
     }
 
     .tag {
       display: inline-block;
-      color: var(--gold-soft);
-      border: 1px solid rgba(214, 185, 123, 0.22);
-      padding: 4px 8px;
+      border: 1px solid rgba(160, 185, 215, 0.18);
       border-radius: 999px;
-      font-size: 11px;
+      color: #dbe7f5;
+      padding: 4px 8px;
       margin: 5px 4px 0 0;
+      font-size: 11px;
     }
 
     /* EXPERIENCE */
 
     .timeline {
-      border-top: 1px solid var(--line-soft);
+      display: grid;
+      gap: 0;
     }
 
     .timeline-item {
       display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 42px;
-      padding: 26px 0;
-      border-bottom: 1px solid var(--line-soft);
+      grid-template-columns: 240px 1fr;
+      gap: 36px;
+      padding: 24px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .timeline-item:first-child {
+      padding-top: 0;
+      border-top: none;
     }
 
     .date {
-      color: var(--gold);
+      color: var(--gold-soft);
       font-size: 11px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       font-weight: bold;
     }
 
-    .timeline-item h3 {
-      margin: 0 0 9px;
+    .timeline-item h3,
+    .honour-card h3 {
+      margin: 0 0 8px;
       color: var(--white);
       font-size: 18px;
     }
@@ -451,133 +471,134 @@
 
     .honours-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      border-left: 1px solid var(--line-soft);
-      border-top: 1px solid var(--line-soft);
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
     }
 
-    .honour {
-      padding: 24px;
-      border-right: 1px solid var(--line-soft);
-      border-bottom: 1px solid var(--line-soft);
-      min-height: 230px;
+    .honour-feature {
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      background:
+        linear-gradient(135deg, rgba(125, 211, 252, 0.08), rgba(16, 39, 66, 0.5));
     }
 
-    .honour h3 {
-      margin: 14px 0 10px;
-      color: var(--white);
-      font-size: 16px;
-      line-height: 1.25;
+    .honour-stack {
+      display: grid;
+      gap: 14px;
     }
 
-    .honour p {
+    .honour-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 20px 22px;
+      background: rgba(16, 39, 66, 0.32);
+    }
+
+    .honour-feature p,
+    .honour-card p {
       margin: 0;
-      color: var(--muted);
-      font-size: 13px;
+      color: var(--soft);
+      font-size: 13.8px;
+    }
+
+    .honour-feature .date,
+    .honour-card .date {
+      margin-bottom: 10px;
     }
 
     /* CONTACT */
 
-    .contact-panel {
+    .contact {
+      border-top: 1px solid var(--line);
+      padding-top: 26px;
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 40px;
-      border: 1px solid var(--line);
-      padding: 36px;
+      grid-template-columns: 1fr auto;
+      gap: 28px;
       align-items: center;
     }
 
-    .contact-panel h2 {
-      margin: 0 0 12px;
-      color: var(--gold-soft);
-      font-family: Georgia, serif;
-      font-size: 42px;
-      line-height: 1;
-      text-transform: uppercase;
-      letter-spacing: -0.04em;
+    .contact h2 {
+      margin: 0 0 8px;
+      color: var(--white);
+      font-size: 24px;
     }
 
-    .contact-panel p {
+    .contact p {
       margin: 0;
       color: var(--soft);
-      font-size: 14.5px;
-      max-width: 650px;
+      font-size: 14px;
+      max-width: 640px;
     }
 
     .contact-links {
-      display: grid;
-      gap: 12px;
-      justify-items: end;
-    }
-
-    .contact-links a {
-      color: var(--gold-soft);
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 6px;
-      font-size: 13px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
     footer {
-      padding: 28px 0;
       color: var(--muted);
       font-size: 12px;
-      text-align: center;
+      padding-top: 18px;
     }
 
+    /* RESPONSIVE */
+
     @media (max-width: 980px) {
-      .top-strip,
-      .hero-body,
+      .page {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      aside {
+        position: relative;
+        top: auto;
+        max-height: none;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 22px;
+      }
+
+      .hero,
       .section-head,
-      .profile-grid,
-      .work-feature,
+      .work-grid,
       .timeline-item,
-      .contact-panel {
+      .honours-grid,
+      .contact {
         grid-template-columns: 1fr;
       }
 
-      .top-strip {
-        gap: 10px;
-      }
-
-      .top-strip .right {
-        text-align: left;
-      }
-
-      .work-feature-right {
-        border-left: none;
-        border-top: 1px solid var(--line);
-      }
-
-      .honours-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .work-row {
+        grid-template-columns: 1fr;
       }
 
       .contact-links {
-        justify-items: start;
+        justify-content: flex-start;
       }
     }
 
-    @media (max-width: 650px) {
+    @media (max-width: 640px) {
       .page {
-        width: min(100% - 28px, 1180px);
+        width: min(100% - 24px, 1260px);
+        padding: 24px 0 40px;
       }
 
-      .hero-title h1 {
-        font-size: 64px;
+      .hero-main h2 {
+        font-size: 38px;
       }
 
-      .hero-body,
-      .work-grid,
-      .honours-grid {
+      .hero-main p {
+        font-size: 16px;
+      }
+
+      .side-nav {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px 16px;
+      }
+
+      .profile-strip {
         grid-template-columns: 1fr;
-      }
-
-      .nav {
-        overflow-x: auto;
-      }
-
-      section {
-        padding: 48px 0;
       }
     }
   </style>
@@ -587,105 +608,91 @@
 
   <div class="page">
 
-    <div class="top-strip">
-      <div>Cybersecurity Portfolio</div>
-      <div class="center">HK</div>
-      <div class="right">Emerging Professional Profile</div>
-    </div>
-
-    <header class="hero" id="profile">
-      <div class="hero-title">
-        <div class="small-label">Cybersecurity · Geopolitics · Australia</div>
-        <h1>Portfolio</h1>
+    <aside>
+      <div class="identity">
+        <div class="kicker">Portfolio</div>
+        <h1>Humna Khan</h1>
+        <p>Cybersecurity student · International Studies major</p>
       </div>
 
-      <div class="hero-body">
-        <div class="name-card">
-          <h2>Humna<br>Khan</h2>
-          <p>Cybersecurity student<br>International Studies major</p>
-        </div>
+      <nav class="side-nav">
+        <a href="#profile">Profile</a>
+        <a href="#work">Selected Work</a>
+        <a href="#experience">Experience</a>
+        <a href="#honours">Honours</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-        <div class="intro">
-          <h3>Studying at the intersection of cybersecurity & geopolitics.</h3>
+      <div class="side-note">
+        Cybersecurity, geopolitics, China-focused international studies, and Australia’s security environment.
+      </div>
+
+      <div class="side-links">
+        <a href="mailto:humnakhan.cyber@gmail.com">humnakhan.cyber@gmail.com</a>
+        <a href="https://www.linkedin.com/in/khan-humna">linkedin.com/in/khan-humna</a>
+      </div>
+    </aside>
+
+    <main>
+
+      <section class="hero" id="profile">
+        <div class="hero-main">
+          <div class="eyebrow">Cybersecurity · Geopolitics · Australia</div>
+
+          <h2>
+            Studying at the intersection of <span>cybersecurity</span> & geopolitics.
+          </h2>
+
           <p>
             I’m a cybersecurity student and International Studies major at the University of Technology Sydney (UTS),
             with a specialist focus on China. I’m interested in the overlap between cyber threats, geopolitical risk,
             critical infrastructure, and Australia’s security environment.
           </p>
 
-          <div class="button-row">
-            <a class="button primary" href="#work">View Work</a>
+          <div class="hero-actions">
+            <a class="button primary" href="#work">View selected work</a>
             <a class="button" href="mailto:humnakhan.cyber@gmail.com">Contact</a>
             <a class="button" href="https://www.linkedin.com/in/khan-humna">LinkedIn</a>
           </div>
-        </div>
 
-        <div class="hero-stats">
-          <div class="stat">
-            <strong>UTS</strong>
-            <span>Cybersecurity & International Studies</span>
-          </div>
-
-          <div class="stat">
-            <strong>6+</strong>
-            <span>Cyber projects and technical writeups</span>
-          </div>
-
-          <div class="stat">
-            <strong>CN</strong>
-            <span>China-focused international studies</span>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <nav class="nav">
-      <a href="#profile">Profile</a>
-      <a href="#work">Selected Work</a>
-      <a href="#experience">Experience</a>
-      <a href="#honours">Honours</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
-    <main>
-
-      <section id="about">
-        <div class="section-head">
-          <h2>Profile</h2>
-          <p>
-            A direct snapshot of where I’m building: cyber, threat research, digital investigation,
-            and the geopolitical context around security decisions.
-          </p>
-        </div>
-
-        <div class="profile-grid">
-          <div class="profile-copy">
-            <p>
-              My work is still developing, but the direction is clear. I’m interested in practical cybersecurity
-              problems that sit inside bigger strategic contexts: infrastructure, state-linked threats,
-              organisational risk, and decision-making under pressure.
-            </p>
-
-            <p>
-              I like work that needs both technical evidence and judgement. Logs matter. So does context.
-              That’s the lane I’m trying to build in.
-            </p>
-          </div>
-
-          <div class="focus-list">
-            <div class="focus-item">
+          <div class="profile-strip">
+            <div class="profile-item">
               <strong>Cyber</strong>
-              <span>DFIR, OSINT, logs, threat research, vulnerability analysis.</span>
+              <span>DFIR, OSINT, log analysis, threat research, vulnerability work.</span>
             </div>
 
-            <div class="focus-item">
-              <strong>Geo</strong>
-              <span>China focus, geopolitical risk, Australia’s security environment.</span>
+            <div class="profile-item">
+              <strong>International Studies</strong>
+              <span>China focus, geopolitical risk, regional security context.</span>
             </div>
 
-            <div class="focus-item">
+            <div class="profile-item">
               <strong>Direction</strong>
-              <span>Cyber threats, real systems, critical infrastructure, national security.</span>
+              <span>Cyber threats, infrastructure, and Australia’s broader security landscape.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <h3>Emerging profile</h3>
+          <p>
+            Still early. Still building. But the direction’s clear.
+          </p>
+
+          <div class="signal-list">
+            <div class="signal">
+              <strong>Technical base</strong>
+              <span>Hands-on work across labs, analysis, and incident-style investigations.</span>
+            </div>
+
+            <div class="signal">
+              <strong>Strategic interest</strong>
+              <span>Where cyber risk starts crossing into geopolitics, infrastructure, and state-level questions.</span>
+            </div>
+
+            <div class="signal">
+              <strong>What I’m building toward</strong>
+              <span>A profile that can sit between technical cyber thinking and the bigger security picture.</span>
             </div>
           </div>
         </div>
@@ -695,18 +702,16 @@
         <div class="section-head">
           <h2>Selected Work</h2>
           <p>
-            Not every project I’ve touched. Just the work that best shows the direction:
-            technical investigation, threat analysis, and security thinking.
+            A mix of technical labs, threat research, and security analysis. Not everything I’ve done —
+            just the work that best shows the direction I’m building.
           </p>
         </div>
 
-        <article class="work-feature">
-          <div class="work-feature-left">
-            <div class="type">Featured · UTS Tech Festival 2026</div>
-            <h3>TRUST Framework | Legacy Infrastructure Baseline Validation</h3>
-          </div>
+        <div class="work-grid">
 
-          <div class="work-feature-right">
+          <article class="feature-card">
+            <div class="type">Featured Project · UTS Tech Festival 2026</div>
+            <h3>TRUST Framework | Legacy Infrastructure Baseline Validation</h3>
             <p>
               Developed TRUST, an independent cybersecurity framework exploring baseline validation and operational
               trust assessment within legacy critical infrastructure environments.
@@ -716,7 +721,7 @@
               can become normalised inside operational baselines, making modern monitoring less effective than expected.
             </p>
             <p>
-              Presented as an interactive analyst simulation, where participants weighed containment decisions
+              Presented as an interactive analyst simulation, where participants had to weigh containment decisions
               against business continuity, safety, and operational consequences.
             </p>
 
@@ -725,46 +730,47 @@
               <span class="tag">Operational Trust</span>
               <span class="tag">SIEM/SOC</span>
               <span class="tag">Threat Modelling</span>
+              <span class="tag">Security Research</span>
             </div>
+          </article>
+
+          <div class="stack">
+            <article class="mini-card">
+              <div class="type">Detection & Log Analysis</div>
+              <h3>SSH Brute Force Simulation</h3>
+              <p>
+                Simulated an SSH brute-force attack in a controlled Ubuntu lab and reconstructed the activity through Linux authentication logs.
+              </p>
+              <div class="tags">
+                <span class="tag">Linux Logs</span>
+                <span class="tag">SSH Security</span>
+                <span class="tag">MITRE ATT&CK</span>
+              </div>
+            </article>
+
+            <article class="mini-card">
+              <div class="type">DFIR Case Study</div>
+              <h3>Sysmon Breach Simulation</h3>
+              <p>
+                Analysed malicious PowerShell execution and Scheduled Task persistence using Sysmon telemetry,
+                IOC extraction, and timeline reconstruction.
+              </p>
+              <div class="tags">
+                <span class="tag">DFIR</span>
+                <span class="tag">Sysmon</span>
+                <span class="tag">Incident Response</span>
+              </div>
+            </article>
           </div>
-        </article>
 
-        <div class="work-grid">
+        </div>
 
-          <article class="work-item">
-            <div class="type">Detection & Log Analysis</div>
-            <h3>SSH Brute Force Simulation</h3>
-            <p>
-              Simulated an SSH brute-force attack in a controlled Ubuntu lab and reconstructed activity through
-              Linux authentication logs.
-            </p>
-            <div class="tags">
-              <span class="tag">Linux Logs</span>
-              <span class="tag">SSH Security</span>
-              <span class="tag">MITRE ATT&CK</span>
-            </div>
-          </article>
-
-          <article class="work-item">
-            <div class="type">DFIR Case Study</div>
-            <h3>Sysmon Breach Simulation</h3>
-            <p>
-              Analysed malicious PowerShell execution and Scheduled Task persistence using Sysmon telemetry,
-              IOC extraction, and timeline reconstruction.
-            </p>
-            <div class="tags">
-              <span class="tag">DFIR</span>
-              <span class="tag">Sysmon</span>
-              <span class="tag">Incident Response</span>
-            </div>
-          </article>
-
-          <article class="work-item">
+        <div class="work-row">
+          <article class="work-band">
             <div class="type">Threat Intelligence</div>
             <h3>Salt Typhoon Threat Actor Case Study</h3>
             <p>
-              Analysed Salt Typhoon’s tradecraft, operational patterns, global reach, and relevance to critical
-              infrastructure defence, with attention to Australia and the Indo-Pacific.
+              Analysed Salt Typhoon’s tradecraft, operational patterns, global reach, and relevance to critical infrastructure defence, with attention to Australia and the Indo-Pacific.
             </p>
             <div class="tags">
               <span class="tag">CTI</span>
@@ -773,12 +779,11 @@
             </div>
           </article>
 
-          <article class="work-item">
+          <article class="work-band">
             <div class="type">Research Report</div>
             <h3>AI-Driven Cyber Threats</h3>
             <p>
-              Researched AI-enabled adversary tradecraft across social engineering, malware development,
-              automated attacks, and SOC detection challenges.
+              Researched AI-enabled adversary tradecraft across social engineering, malware development, automated attacks, and SOC detection challenges.
             </p>
             <div class="tags">
               <span class="tag">AI Security</span>
@@ -787,12 +792,11 @@
             </div>
           </article>
 
-          <article class="work-item">
+          <article class="work-band">
             <div class="type">Practical Labs</div>
             <h3>OSINT & Cybersecurity Labs</h3>
             <p>
-              Completed hands-on labs focused on image intelligence, metadata forensics, SOCMINT,
-              digital footprints, and investigative reasoning.
+              Completed hands-on labs focused on image intelligence, metadata forensics, SOCMINT, digital footprints, and investigative reasoning.
             </p>
             <div class="tags">
               <span class="tag">OSINT</span>
@@ -800,21 +804,6 @@
               <span class="tag">IMINT</span>
             </div>
           </article>
-
-          <article class="work-item">
-            <div class="type">Internship Project Set</div>
-            <h3>OESON Security Projects</h3>
-            <p>
-              Completed work across malware analysis, vulnerability scanning, network analysis, and web security
-              during a cybersecurity internship.
-            </p>
-            <div class="tags">
-              <span class="tag">Nmap</span>
-              <span class="tag">Wireshark</span>
-              <span class="tag">Nessus</span>
-            </div>
-          </article>
-
         </div>
       </section>
 
@@ -867,65 +856,72 @@
 
       <section id="honours">
         <div class="section-head">
-          <h2>Honours</h2>
+          <h2>Selected Honours & International Engagement</h2>
           <p>
-            Selected honours and international engagement across leadership, volunteering, engineering,
-            technology, and defence-aligned youth leadership.
+            Recognition across leadership, international engagement, volunteering, engineering and technology,
+            and defence-aligned youth leadership.
           </p>
         </div>
 
         <div class="honours-grid">
 
-          <article class="honour">
+          <article class="honour-feature">
             <div class="date">Aug 2026</div>
             <h3>University Scholars Leadership Symposium | Australian Delegate</h3>
             <p>
-              Selected as an Australian delegate for the University Scholars Leadership Symposium at the
-              United Nations Conference Centre in Bangkok, Thailand.
+              Selected as an Australian delegate for the University Scholars Leadership Symposium at the United Nations Conference Centre in Bangkok, Thailand.
             </p>
           </article>
 
-          <article class="honour">
-            <div class="date">Jan 2026</div>
-            <h3>5th Global Peace Summit | Australian Delegate</h3>
-            <p>
-              Represented Australia at the 5th Global Peace Summit hosted at the United Nations Conference
-              Centre in Bangkok, issued by Humanitarian Affairs Asia.
-            </p>
-          </article>
+          <div class="honour-stack">
+            <article class="honour-card">
+              <div class="date">Jan 2026</div>
+              <h3>5th Global Peace Summit | Australian Delegate</h3>
+              <p>
+                Represented Australia at the 5th Global Peace Summit hosted at the United Nations Conference Centre in Bangkok, issued by Humanitarian Affairs Asia.
+              </p>
+            </article>
 
-          <article class="honour">
-            <div class="date">Sep 2025</div>
-            <h3>NSW Volunteer of the Year Award | Young Nominee</h3>
-            <p>
-              Nominated for the NSW Volunteer of the Year Award in recognition of community service,
-              student engagement, and volunteering contributions.
-            </p>
-          </article>
+            <article class="honour-card">
+              <div class="date">Sep 2025</div>
+              <h3>NSW Volunteer of the Year Award | Young Nominee</h3>
+              <p>
+                Nominated for the NSW Volunteer of the Year Award in recognition of community service, student engagement, and volunteering contributions.
+              </p>
+            </article>
+          </div>
 
-          <article class="honour">
+        </div>
+
+        <div class="work-row" style="margin-top: 18px;">
+          <article class="work-band">
             <div class="date">Feb 2023</div>
             <h3>FEIT Women in Engineering and IT Scholarship</h3>
             <p>
-              Awarded by the UTS Faculty of Engineering and IT, recognising women pursuing engineering
-              and technology pathways.
+              Awarded by the UTS Faculty of Engineering and IT, recognising women pursuing engineering and technology pathways.
             </p>
           </article>
 
-          <article class="honour">
+          <article class="work-band">
             <div class="date">Oct 2022</div>
             <h3>ADF Long Tan Youth Leadership & Teamwork Award</h3>
             <p>
-              Awarded by the Australian Department of Defence for leadership, teamwork, initiative,
-              and contribution to school and community life.
+              Awarded by the Australian Department of Defence for leadership, teamwork, initiative, and contribution to school and community life.
             </p>
           </article>
 
+          <article class="work-band">
+            <div class="date">Focus</div>
+            <h3>What this section shows</h3>
+            <p>
+              Leadership, international engagement, and a steady track record of showing up, not just technically, but across community and broader public-facing spaces too.
+            </p>
+          </article>
         </div>
       </section>
 
       <section id="contact">
-        <div class="contact-panel">
+        <div class="contact">
           <div>
             <h2>Let’s connect.</h2>
             <p>
@@ -935,18 +931,18 @@
           </div>
 
           <div class="contact-links">
-            <a href="mailto:humnakhan.cyber@gmail.com">humnakhan.cyber@gmail.com</a>
-            <a href="https://www.linkedin.com/in/khan-humna">linkedin.com/in/khan-humna</a>
-            <a href="https://github.com/">GitHub</a>
+            <a class="button primary" href="https://www.linkedin.com/in/khan-humna">LinkedIn</a>
+            <a class="button" href="mailto:humnakhan.cyber@gmail.com">Email</a>
+            <a class="button" href="https://github.com/">GitHub</a>
           </div>
         </div>
+
+        <footer>
+          © 2026 Humna Khan · Cybersecurity Portfolio
+        </footer>
       </section>
 
     </main>
-
-    <footer>
-      © 2026 Humna Khan · Cybersecurity Portfolio
-    </footer>
 
   </div>
 
