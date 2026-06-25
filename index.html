@@ -9,20 +9,20 @@
 
   <style>
     :root {
-      --bg: #05101c;
-      --bg-2: #081727;
-      --navy: #0c2138;
-      --navy-2: #112d49;
+      --bg: #050f1c;
+      --bg-2: #081827;
+      --navy: #0b1f35;
+      --navy-2: #102a45;
       --line: rgba(148, 163, 184, 0.16);
-      --line-strong: rgba(125, 211, 252, 0.30);
+      --line-strong: rgba(125, 211, 252, 0.28);
       --text: #e8eef6;
       --soft: #c9d6e6;
       --muted: #95a8bf;
       --blue: #7dd3fc;
       --blue-2: #38bdf8;
+      --blue-deep: #1e6091;
       --gold: #d6b15a;
       --white: #ffffff;
-      --shadow: rgba(0, 0, 0, 0.24);
     }
 
     * {
@@ -37,44 +37,39 @@
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       background:
-        radial-gradient(circle at 10% 10%, rgba(56, 189, 248, 0.08), transparent 24%),
-        radial-gradient(circle at 92% 12%, rgba(56, 189, 248, 0.05), transparent 18%),
-        linear-gradient(180deg, var(--bg), var(--bg-2) 50%, #040b14);
+        radial-gradient(circle at 12% 8%, rgba(56, 189, 248, 0.09), transparent 24%),
+        radial-gradient(circle at 92% 10%, rgba(125, 211, 252, 0.045), transparent 20%),
+        radial-gradient(circle at 72% 78%, rgba(30, 96, 145, 0.08), transparent 28%),
+        linear-gradient(180deg, var(--bg), var(--bg-2) 48%, #040b14);
       color: var(--text);
       line-height: 1.7;
-      position: relative;
       overflow-x: hidden;
     }
 
-    /* subtle cyber overlay */
     body::before {
-      content: "";
+      content: "CYBER";
       position: fixed;
-      inset: 0;
-      pointer-events: none;
+      top: 8vh;
+      right: -6vw;
+      font-size: clamp(120px, 18vw, 270px);
+      font-weight: 900;
+      letter-spacing: -0.08em;
+      color: rgba(125, 211, 252, 0.025);
       z-index: -2;
-      background-image:
-        linear-gradient(rgba(125, 211, 252, 0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(125, 211, 252, 0.035) 1px, transparent 1px);
-      background-size: 48px 48px;
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.22), transparent);
+      pointer-events: none;
     }
 
     body::after {
-      content: "";
+      content: "TRUST";
       position: fixed;
-      inset: 0;
+      bottom: 4vh;
+      left: 12vw;
+      font-size: clamp(90px, 14vw, 210px);
+      font-weight: 900;
+      letter-spacing: -0.08em;
+      color: rgba(125, 211, 252, 0.018);
+      z-index: -2;
       pointer-events: none;
-      z-index: -1;
-      background:
-        linear-gradient(
-          180deg,
-          transparent 0%,
-          rgba(125, 211, 252, 0.025) 50%,
-          transparent 100%
-        );
-      background-size: 100% 6px;
-      opacity: 0.25;
     }
 
     a {
@@ -89,6 +84,18 @@
       grid-template-columns: 190px 1fr;
       gap: 64px;
       padding: 36px 0 48px;
+      position: relative;
+    }
+
+    .site::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 218px;
+      width: 1px;
+      height: 100%;
+      background: linear-gradient(180deg, transparent, rgba(125, 211, 252, 0.16), transparent);
+      pointer-events: none;
     }
 
     /* SIDEBAR */
@@ -180,6 +187,16 @@
       color: var(--blue);
     }
 
+    .small-signal {
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(125, 211, 252, 0.62);
+    }
+
     /* MAIN */
 
     main {
@@ -189,6 +206,7 @@
     section {
       padding: 46px 0;
       border-bottom: 1px solid var(--line);
+      position: relative;
     }
 
     section:first-child {
@@ -216,14 +234,15 @@
     }
 
     .hero::before {
-      content: "";
+      content: "CYBER / GEO / AUS";
       position: absolute;
-      top: 12px;
-      right: -120px;
-      width: 260px;
-      height: 260px;
-      border: 1px solid rgba(125, 211, 252, 0.08);
-      border-radius: 50%;
+      top: -6px;
+      right: -20px;
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      color: rgba(125, 211, 252, 0.16);
+      transform: rotate(90deg);
+      transform-origin: right top;
       pointer-events: none;
     }
 
@@ -263,7 +282,7 @@
       font-size: 13px;
       font-weight: bold;
       transition: 0.22s ease;
-      background: rgba(255,255,255,0.01);
+      background: rgba(255, 255, 255, 0.01);
     }
 
     .button.primary {
@@ -275,7 +294,7 @@
     .button:hover {
       transform: translateY(-2px);
       border-color: var(--line-strong);
-      box-shadow: 0 12px 28px rgba(56, 189, 248, 0.08);
+      box-shadow: 0 12px 30px rgba(56, 189, 248, 0.08);
     }
 
     .profile-points {
@@ -334,6 +353,19 @@
 
     /* WORK */
 
+    #work::before {
+      content: "SELECTED WORK";
+      position: absolute;
+      top: 22px;
+      right: 0;
+      color: rgba(125, 211, 252, 0.05);
+      font-weight: 900;
+      font-size: clamp(48px, 8vw, 110px);
+      letter-spacing: -0.06em;
+      pointer-events: none;
+      z-index: -1;
+    }
+
     .feature-project {
       display: grid;
       grid-template-columns: 240px 1fr;
@@ -357,6 +389,7 @@
       border: 1px solid rgba(125, 211, 252, 0.2);
       border-radius: 28px 10px 28px 10px;
       background:
+        radial-gradient(circle at top right, rgba(125, 211, 252, 0.08), transparent 32%),
         linear-gradient(135deg, rgba(17, 45, 73, 0.42), rgba(7, 18, 31, 0.28));
       overflow: hidden;
       transition: 0.25s ease;
@@ -375,19 +408,20 @@
     .feature-card::after {
       content: "TRUST";
       position: absolute;
-      right: 26px;
-      bottom: 18px;
-      color: rgba(125, 211, 252, 0.045);
-      font-size: 64px;
+      right: -10px;
+      bottom: -38px;
+      font-size: 96px;
+      line-height: 1;
       font-weight: 900;
       letter-spacing: -0.08em;
+      color: rgba(125, 211, 252, 0.035);
       pointer-events: none;
     }
 
     .feature-card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-3px);
       border-color: rgba(125, 211, 252, 0.34);
-      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.18);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.22);
     }
 
     .feature-card h3 {
@@ -408,7 +442,7 @@
       z-index: 1;
     }
 
-    .project-links {
+    .project-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
@@ -418,26 +452,18 @@
     }
 
     .project-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 8px 11px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.18);
-      color: var(--soft);
-      font-size: 12px;
+      display: inline-block;
+      border-bottom: 1px solid rgba(125, 211, 252, 0.35);
+      color: var(--blue);
+      font-size: 12.5px;
+      font-weight: bold;
       transition: 0.2s ease;
-      background: rgba(5, 16, 28, 0.38);
     }
 
     .project-link:hover {
       color: var(--white);
-      border-color: rgba(125, 211, 252, 0.36);
-      transform: translateY(-1px);
-    }
-
-    .project-link span {
-      color: var(--blue);
+      border-bottom-color: var(--white);
+      transform: translateX(2px);
     }
 
     .work-grid {
@@ -468,24 +494,45 @@
     }
 
     .work-body {
-      transition: 0.25s ease;
       position: relative;
       overflow: hidden;
+      transition: 0.25s ease;
     }
 
     .work-body::after {
-      content: "";
       position: absolute;
-      inset: 0;
-      background: linear-gradient(120deg, transparent, rgba(125, 211, 252, 0.035), transparent);
-      opacity: 0;
-      transition: 0.25s ease;
+      right: 18px;
+      bottom: -18px;
+      font-size: 48px;
+      font-weight: 900;
+      letter-spacing: -0.08em;
+      color: rgba(125, 211, 252, 0.035);
       pointer-events: none;
+    }
+
+    .work-item:nth-child(1) .work-body::after {
+      content: "SSH";
+    }
+
+    .work-item:nth-child(2) .work-body::after {
+      content: "DFIR";
+    }
+
+    .work-item:nth-child(3) .work-body::after {
+      content: "CTI";
+    }
+
+    .work-item:nth-child(4) .work-body::after {
+      content: "AI";
+    }
+
+    .work-item:nth-child(5) .work-body::after {
+      content: "OSINT";
     }
 
     .work-item:nth-child(odd) .work-body {
       border-radius: 22px 8px 22px 8px;
-      background: rgba(255,255,255,0.018);
+      background: rgba(255, 255, 255, 0.018);
       border: 1px solid rgba(148, 163, 184, 0.08);
       padding: 22px;
     }
@@ -499,12 +546,8 @@
 
     .work-body:hover {
       transform: translateY(-3px);
-      border-color: rgba(125, 211, 252, 0.25) !important;
-      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.14);
-    }
-
-    .work-body:hover::after {
-      opacity: 1;
+      border-color: rgba(125, 211, 252, 0.24);
+      background: rgba(125, 211, 252, 0.035);
     }
 
     .tags {
@@ -521,16 +564,22 @@
       border-radius: 999px;
       color: #d7e7f6;
       font-size: 11px;
-      transition: 0.2s ease;
-    }
-
-    .tag:hover {
-      color: var(--white);
-      border-color: rgba(125, 211, 252, 0.36);
-      background: rgba(125, 211, 252, 0.045);
     }
 
     /* EXPERIENCE */
+
+    #experience::before {
+      content: "FIELD NOTES";
+      position: absolute;
+      top: 22px;
+      right: 0;
+      color: rgba(125, 211, 252, 0.04);
+      font-weight: 900;
+      font-size: clamp(42px, 7vw, 96px);
+      letter-spacing: -0.06em;
+      pointer-events: none;
+      z-index: -1;
+    }
 
     .timeline {
       display: grid;
@@ -543,11 +592,6 @@
       gap: 42px;
       padding: 22px 0;
       border-top: 1px solid var(--line);
-      transition: 0.22s ease;
-    }
-
-    .timeline-item:hover {
-      border-top-color: var(--line-strong);
     }
 
     .timeline-item:first-child {
@@ -562,6 +606,14 @@
       font-weight: bold;
       color: var(--gold);
       padding-top: 4px;
+    }
+
+    .timeline-body {
+      transition: 0.22s ease;
+    }
+
+    .timeline-body:hover {
+      transform: translateX(3px);
     }
 
     .timeline-body h3 {
@@ -579,6 +631,19 @@
 
     /* HONOURS */
 
+    #honours::before {
+      content: "HONOURS";
+      position: absolute;
+      top: 22px;
+      right: 0;
+      color: rgba(125, 211, 252, 0.04);
+      font-weight: 900;
+      font-size: clamp(42px, 7vw, 96px);
+      letter-spacing: -0.06em;
+      pointer-events: none;
+      z-index: -1;
+    }
+
     .honours-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -588,7 +653,7 @@
     .honour-card {
       padding: 20px 22px;
       border: 1px solid rgba(148, 163, 184, 0.12);
-      background: rgba(255,255,255,0.018);
+      background: rgba(255, 255, 255, 0.018);
       color: var(--soft);
       min-height: 100%;
       transition: 0.25s ease;
@@ -596,33 +661,29 @@
       overflow: hidden;
     }
 
-    .honour-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 22px;
-      right: 22px;
-      height: 1px;
-      background: linear-gradient(90deg, rgba(125, 211, 252, 0.32), transparent);
-      opacity: 0;
-      transition: 0.25s ease;
-    }
-
     .honour-card:hover {
       transform: translateY(-3px);
-      border-color: rgba(125, 211, 252, 0.24);
-      background: rgba(125, 211, 252, 0.026);
-    }
-
-    .honour-card:hover::before {
-      opacity: 1;
+      border-color: rgba(125, 211, 252, 0.22);
+      background: rgba(125, 211, 252, 0.025);
     }
 
     .honour-card:nth-child(1) {
       grid-column: span 2;
       border-radius: 28px 10px 28px 10px;
-      background: linear-gradient(135deg, rgba(17, 45, 73, 0.34), rgba(255,255,255,0.015));
+      background: linear-gradient(135deg, rgba(17, 45, 73, 0.34), rgba(255, 255, 255, 0.015));
       border-color: rgba(125, 211, 252, 0.2);
+    }
+
+    .honour-card:nth-child(1)::after {
+      content: "UNCC";
+      position: absolute;
+      right: 18px;
+      bottom: -26px;
+      font-size: 74px;
+      font-weight: 900;
+      letter-spacing: -0.08em;
+      color: rgba(125, 211, 252, 0.035);
+      pointer-events: none;
     }
 
     .honour-card:nth-child(2) {
@@ -644,21 +705,40 @@
     .honour-card .date {
       margin-bottom: 10px;
       padding-top: 0;
+      position: relative;
+      z-index: 1;
     }
 
     .honour-card h3 {
       margin: 0 0 8px;
       font-size: 17px;
       color: var(--white);
+      position: relative;
+      z-index: 1;
     }
 
     .honour-card p {
       margin: 0;
       font-size: 13.6px;
       color: var(--soft);
+      position: relative;
+      z-index: 1;
     }
 
     /* CONTACT */
+
+    #contact::before {
+      content: "CONNECT";
+      position: absolute;
+      top: 20px;
+      right: 0;
+      color: rgba(125, 211, 252, 0.04);
+      font-weight: 900;
+      font-size: clamp(42px, 7vw, 96px);
+      letter-spacing: -0.06em;
+      pointer-events: none;
+      z-index: -1;
+    }
 
     .contact-wrap {
       display: grid;
@@ -700,6 +780,10 @@
         gap: 26px;
       }
 
+      .site::before {
+        display: none;
+      }
+
       aside {
         position: relative;
         top: auto;
@@ -734,12 +818,21 @@
       .honour-card:nth-child(1) {
         grid-column: span 1;
       }
+
+      .hero::before {
+        display: none;
+      }
     }
 
     @media (max-width: 620px) {
       .site {
         width: min(100% - 28px, 1200px);
         padding: 24px 0 34px;
+      }
+
+      body::before,
+      body::after {
+        display: none;
       }
 
       .hero h2 {
@@ -796,6 +889,10 @@
         <a href="mailto:humnakhan.cyber@gmail.com">humnakhan.cyber@gmail.com</a>
         <a href="https://www.linkedin.com/in/khan-humna">linkedin.com/in/khan-humna</a>
         <a href="https://humnakhan-portfolio.github.io/">Portfolio site</a>
+      </div>
+
+      <div class="small-signal">
+        Cyber · Geo · CTI · OSINT
       </div>
     </aside>
 
@@ -856,10 +953,12 @@
               Developed TRUST, an independent cybersecurity framework exploring baseline validation and operational
               trust assessment within legacy critical infrastructure environments.
             </p>
+
             <p>
               The project looks at how dormant threats, undocumented dependencies, and inherited trust relationships
               can become normalised inside operational baselines, making modern monitoring less effective than expected.
             </p>
+
             <p>
               Presented as an interactive analyst simulation, where participants had to weigh containment decisions
               against business continuity, safety, and operational consequences.
@@ -873,9 +972,9 @@
               <span class="tag">Security Research</span>
             </div>
 
-            <div class="project-links">
-              <a class="project-link" href="#" target="_blank"><span>↗</span> Project writeup</a>
-              <a class="project-link" href="#" target="_blank"><span>↗</span> Showcase notes</a>
+            <div class="project-actions">
+              <a class="project-link" href="https://www.linkedin.com/in/khan-humna">View on LinkedIn →</a>
+              <a class="project-link" href="mailto:humnakhan.cyber@gmail.com">Request project overview →</a>
             </div>
           </div>
         </div>
@@ -897,9 +996,8 @@
                 <span class="tag">MITRE ATT&CK</span>
               </div>
 
-              <div class="project-links">
-                <a class="project-link" href="#" target="_blank"><span>↗</span> View writeup</a>
-                <a class="project-link" href="#" target="_blank"><span>↗</span> Evidence notes</a>
+              <div class="project-actions">
+                <a class="project-link" href="https://www.linkedin.com/in/khan-humna">LinkedIn writeup →</a>
               </div>
             </div>
           </article>
@@ -919,9 +1017,8 @@
                 <span class="tag">Incident Response</span>
               </div>
 
-              <div class="project-links">
-                <a class="project-link" href="#" target="_blank"><span>↗</span> View case study</a>
-                <a class="project-link" href="#" target="_blank"><span>↗</span> Detection notes</a>
+              <div class="project-actions">
+                <a class="project-link" href="https://www.linkedin.com/in/khan-humna">LinkedIn writeup →</a>
               </div>
             </div>
           </article>
@@ -941,9 +1038,8 @@
                 <span class="tag">National Security</span>
               </div>
 
-              <div class="project-links">
-                <a class="project-link" href="#" target="_blank"><span>↗</span> View brief</a>
-                <a class="project-link" href="#" target="_blank"><span>↗</span> Research notes</a>
+              <div class="project-actions">
+                <a class="project-link" href="https://www.linkedin.com/in/khan-humna">LinkedIn writeup →</a>
               </div>
             </div>
           </article>
@@ -963,9 +1059,8 @@
                 <span class="tag">SOC Detection</span>
               </div>
 
-              <div class="project-links">
-                <a class="project-link" href="#" target="_blank"><span>↗</span> View report</a>
-                <a class="project-link" href="#" target="_blank"><span>↗</span> ATT&CK mapping</a>
+              <div class="project-actions">
+                <a class="project-link" href="https://www.linkedin.com/in/khan-humna">LinkedIn writeup →</a>
               </div>
             </div>
           </article>
@@ -985,9 +1080,8 @@
                 <span class="tag">IMINT</span>
               </div>
 
-              <div class="project-links">
-                <a class="project-link" href="#" target="_blank"><span>↗</span> View labs</a>
-                <a class="project-link" href="#" target="_blank"><span>↗</span> TryHackMe notes</a>
+              <div class="project-actions">
+                <a class="project-link" href="https://www.linkedin.com/in/khan-humna">LinkedIn writeup →</a>
               </div>
             </div>
           </article>
@@ -1007,6 +1101,7 @@
 
           <article class="timeline-item">
             <div class="date">Cybersecurity Internship</div>
+
             <div class="timeline-body">
               <h3>Cyber Security Intern | OESON</h3>
               <p>
@@ -1019,6 +1114,7 @@
 
           <article class="timeline-item">
             <div class="date">Software / UX Project</div>
+
             <div class="timeline-body">
               <h3>Software Engineer Intern & Team Co-Lead | Optik Winter 2025</h3>
               <p>
@@ -1030,6 +1126,7 @@
 
           <article class="timeline-item">
             <div class="date">Leadership</div>
+
             <div class="timeline-body">
               <h3>Engineers Australia Student Ambassador</h3>
               <p>
@@ -1124,6 +1221,7 @@
       </section>
 
     </main>
+
   </div>
 
 </body>
